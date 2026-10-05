@@ -1,0 +1,211 @@
+body {
+  margin: 0;
+  background: #f4f6f8;
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 30px 24px;
+}
+
+.container > h1 {
+  margin: 0 0 24px;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.left-column,
+.right-column {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.left-column h2,
+.right-column h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 28px;
+}
+
+.hotel-list,
+.room-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.hotel-card,
+.room-card,
+.booking-card {
+  border: 1px solid #e3e6ea;
+  border-radius: 14px;
+  padding: 18px;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.hotel-card {
+  cursor: pointer;
+}
+
+.hotel-card:hover,
+.room-card:hover,
+.booking-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.hotel-card.selected {
+  border: 2px solid #222;
+  background: #f7f7f7;
+}
+
+.hotel-card h3,
+.room-card h3,
+.booking-card h3 {
+  margin: 0 0 8px;
+}
+
+.hotel-card p,
+.room-card p,
+.booking-card p {
+  margin: 6px 0;
+  color: #555;
+}
+
+.rooms-section {
+  margin-top: 28px;
+}
+
+.availability-search {
+  display: flex;
+  gap: 12px;
+  align-items: end;
+  flex-wrap: wrap;
+  margin: 20px 0 24px;
+  padding: 16px;
+  border: 1px solid #eceff3;
+  border-radius: 12px;
+  background: #fafbfc;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+}
+
+.field-group label {
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #666;
+}
+
+.field-group input {
+  padding: 10px 12px;
+  border: 1px solid #cfd6dd;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+}
+
+.booking-form {
+  margin-top: 28px;
+  padding: 20px;
+  border: 1px solid #eceff3;
+  border-radius: 14px;
+  background: #fafbfc;
+  max-width: 500px;
+}
+
+.booking-form h2 {
+  margin-top: 0;
+}
+
+.booking-form input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  padding: 11px 12px;
+  border: 1px solid #cfd6dd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  background: #1f1f1f;
+  color: white;
+  padding: 10px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.room-card button,
+.booking-card button {
+  margin-top: 10px;
+}
+
+.bookings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.booking-card strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.success-message {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: #eefbea;
+  border: 1px solid #b7e3b1;
+  color: #245b1f;
+}
+
+@media (max-width: 900px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .container > h1 {
+    font-size: 38px;
+  }
+}

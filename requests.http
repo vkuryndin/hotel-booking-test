@@ -1,0 +1,79 @@
+# @name addhotel
+POST http://localhost:8080/hotels
+Content-Type: application/json
+
+{
+  "name": "IBIS Hotel",
+  "city": "Yerevan"
+}
+
+###
+
+# @name addroom
+POST http://localhost:8080/rooms
+Content-Type: application/json
+
+{
+  "hotelId": 2,
+  "roomNumber": "103",
+  "capacity": 2,
+  "pricePerNight": 200.00
+}
+
+###
+# @name addbooking
+POST http://localhost:8080/bookings
+Content-Type: application/json
+
+{
+  "roomId": 4,
+  "guestName": "Vladimir Kuryndin",
+  "checkIn": "2026-10-10",
+  "checkOut": "2026-10-12"
+}
+
+### Конфликтующая бронь
+POST http://localhost:8080/bookings
+Content-Type: application/json
+
+{
+  "roomId": 1,
+  "guestName": "Test User",
+  "checkIn": "2026-10-11",
+  "checkOut": "2026-10-13"
+}
+
+### Неверные даты
+POST http://localhost:8080/bookings
+Content-Type: application/json
+
+{
+  "roomId": 1,
+  "guestName": "Bad Dates",
+  "checkIn": "2026-10-15",
+  "checkOut": "2026-10-10"
+}
+
+### Получить отель по id
+GET http://localhost:8080/hotels/1
+
+### Получить номера конкретного отеля
+GET http://localhost:8080/hotels/1/rooms
+
+### Получить бронирования конкретного номера
+GET http://localhost:8080/rooms/1/bookings
+
+### Удалить бронирование
+DELETE http://localhost:8080/bookings/2
+
+### Проверка бронирования
+GET http://localhost:8080/rooms/available?checkIn=2026-10-10&checkOut=2026-10-12
+
+### Все комнаты
+GET http://localhost:8080/rooms
+
+### Свободные номера конкретного отеля
+GET http://localhost:8080/hotels/2/rooms/available?checkIn=2026-10-10&checkOut=2026-10-12
+
+### Получение бронирования
+GET http://localhost:8080/bookings/1
