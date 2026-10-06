@@ -1,11 +1,9 @@
 package org.example.service;
 
+import org.example.exception.HotelNotFoundException;
 import org.example.model.Hotel;
 import org.example.repository.HotelRepository;
 import org.springframework.stereotype.Service;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -28,9 +26,6 @@ public class HotelService {
 
     public Hotel getHotelById(Long id) {
         return hotelRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(
-                        HttpStatus.NOT_FOUND,
-                        "Hotel not found"
-                ));
+                .orElseThrow(() -> new HotelNotFoundException(id));
     }
 }

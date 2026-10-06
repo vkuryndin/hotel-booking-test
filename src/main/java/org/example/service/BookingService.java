@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.dto.CreateBookingRequest;
+import org.example.exception.RoomNotFoundException;
 import org.example.model.Booking;
 import org.example.model.Room;
 import org.example.repository.BookingRepository;
@@ -30,7 +31,7 @@ public class BookingService {
 
     public Booking createBooking(CreateBookingRequest request) {
         Room room = roomRepository.findById(request.getRoomId())
-                .orElseThrow(() -> new RuntimeException("Room not found"));
+                .orElseThrow(() -> new RoomNotFoundException(request.getRoomId()));
 
         if (!request.getCheckOut().isAfter(request.getCheckIn())) {
             throw new ResponseStatusException(

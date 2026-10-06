@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import jakarta.validation.Valid;
 import org.example.dto.CreateRoomRequest;
 import org.example.model.Room;
 import org.example.model.Booking;
@@ -38,7 +39,7 @@ public class RoomController {
     }
 
     @PostMapping
-    public Room createRoom(@RequestBody CreateRoomRequest request) {
+    public Room createRoom(@Valid @RequestBody CreateRoomRequest request) {
         return roomService.createRoom(request);
     }
 

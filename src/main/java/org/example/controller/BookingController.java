@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import jakarta.validation.Valid;
 import org.example.dto.CreateBookingRequest;
 import org.example.model.Booking;
 import org.example.service.BookingService;
@@ -25,7 +26,7 @@ public class BookingController {
     }
 
     @PostMapping
-    public Booking createBooking(@RequestBody CreateBookingRequest request) {
+    public Booking createBooking(@Valid @RequestBody CreateBookingRequest request) {
         return bookingService.createBooking(request);
     }
     @DeleteMapping("/{id}")

@@ -77,3 +77,14 @@ GET http://localhost:8080/hotels/2/rooms/available?checkIn=2026-10-10&checkOut=2
 
 ### Получение бронирования
 GET http://localhost:8080/bookings/1
+
+###Ошибочный запрос на комнаты
+POST http://localhost:8080/rooms
+Content-Type: application/json
+
+{
+  "hotelId": 1,
+  "roomNumber": "",
+  "capacity": -1,
+  "pricePerNight": 0
+}
